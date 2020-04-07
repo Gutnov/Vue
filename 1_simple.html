@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Form Guest</title>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link href="css/styles.css" rel="stylesheet">
+	<script src="js/vue.js"></script>
+</head>
+<body>
+	<div class="wrapper">
+		<div class="sample">
+			<form>
+				<div class="form-group">
+					<label for="exampleInputEmail1">Email address</label>
+					<input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"  autocomplete="off">
+				</div>
+
+				<div class="form-group">
+					<label for="exampleInputPassword1">First Name</label>
+					<input type="text" class="form-control" id="exampleInputPassword1" autocomplete="off">
+				</div>
+
+				<div class="form-group">
+					<label for="exampleInputPassword1">Last Name</label>
+					<input type="text" class="form-control" id="exampleInputPassword1" autocomplete="off">
+				</div>
+
+				<div class="form-group">
+					<label for="exampleInputPassword1">Phone</label>
+					<input type="text" class="form-control" id="exampleInputPassword1" autocomplete="off">
+				</div>
+
+				<span>Guests</span>
+
+				<button type="button" class="btn btn-primary" @click="addNumber">+</button>
+				<hr>
+				<div class="form-group" v-for="index in numbers">
+					<label for="exampleInputPassword1">Guest {{index + 1}}</label>
+					<input type="text" class="form-control" id="exampleInputPassword1" autocomplete="off">
+				</div>
+
+				<button type="submit" class="btn btn-success">Submit</button>
+			</form>
+		</div>
+	</div>
+
+
+	<script>
+		let sample = new Vue({
+			el: '.sample',
+			data: {
+				numbers: []
+			},
+			methods: {
+	            addNumber(){
+	            	let num = this.numbers.length;
+	                this.numbers.push(num);
+	            }
+			}
+		});
+	</script>
+</body>
+</html>
